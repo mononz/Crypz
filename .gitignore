@@ -1,0 +1,20 @@
+# idea
+.idea
+
+# npm
+node_modules
+*.log
+
+
+# databases
+*.sqlite3
+
+process.yaml
+
+.DS_Store
+
+.env
+
+static/epic/
+firebase-key.json
+knexfile.js
