@@ -5,7 +5,10 @@ Basic NodeJS API developed with the Koa2 framework to check current trading marg
 
 ### Install & Run
 
+> cp .env.template .env
+
 > npm install
+
 > node index
 
 ### Routes
