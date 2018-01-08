@@ -10,6 +10,7 @@
   "author": "Jared Hall",
   "license": "ISC",
   "dependencies": {
+    "btc-markets": "0.0.10",
     "coinbase": "2.0.6",
     "dotenv": "4.0.0",
     "koa": "2.4.1",

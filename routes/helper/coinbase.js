@@ -1,8 +1,8 @@
 const Client = require('coinbase').Client;
 
 let client = new Client({
-  'apiKey': 'API KEY',
-  'apiSecret': 'API SECRET'
+  'apiKey': process.env.coinbaseApiKey,
+  'apiSecret': process.env.coinbaseApiSecret
 });
 
 async function getBuyPrices(currency) {
