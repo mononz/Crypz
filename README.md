@@ -26,6 +26,12 @@ or
 
 __GET /btcmarkets__
 
-http://localhost:3000/btcmarkets?stake=300&sellFee=0.2
+Optional query parameters
 
-Optional `stake` and `sellFee` query params. Defaults to `2000` and `0.5` respectively when not set
+| Param    | Description             | Defaults |
+| -------- | ----------------------- | -------: |
+| stake    | amount to invest        | 2000     |
+| sellFee  | btcmarkets trading fee  | 0.5      |
+| minimal  | true for reduced output | false    |
+
+Ex. http://localhost:3001/btcmarkets?stake=300&sellFee=0.75&minimal=false
