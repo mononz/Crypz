@@ -31,6 +31,7 @@ Optional query parameters
 | Param    | Description             | Defaults |
 | -------- | ----------------------- | -------: |
 | stake    | amount to invest        | 2000     |
+| currency | currency to use         | AUD      |
 | sellFee  | btcmarkets trading fee  | 0.5      |
 | minimal  | true for reduced output | false    |
 

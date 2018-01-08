@@ -43,6 +43,9 @@ router.get('/', async ctx => {
   if (ctx.query.hasOwnProperty('sellFee')) {
     builder.config.sellFee = parseFloat(ctx.query.sellFee);
   }
+  if (ctx.query.hasOwnProperty('currency')) {
+    builder.config.currency = ctx.query.currency;
+  }
 
   // pull buy and sell data
   let buys = await coinbaseAPI.getBuyPrices(builder.config.currency);
