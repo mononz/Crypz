@@ -3,17 +3,29 @@ Coin API
 
 Basic NodeJS API developed with the Koa2 framework to check current trading margins between different cryptocurrency markets.
 
-### Install & Run
+### Install
 
+Ensure the .env file exists
 > cp .env.template .env
+
+Install dependencies (rerun when package.json changes)
 
 > npm install
 
+
+### Run
+
 > node index
 
-### Routes
+or
 
-GET /btcmarkets
-> http://localhost:3000/btcmarkets?stake=300
+> npm start
 
-Optional `stake` query param. Defaults to `2000` if not set
+
+### Documentation
+
+__GET /btcmarkets__
+
+http://localhost:3000/btcmarkets?stake=300&sellFee=0.2
+
+Optional `stake` and `sellFee` query params. Defaults to `2000` and `0.5` respectively when not set
