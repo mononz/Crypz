@@ -17,6 +17,9 @@ app.use(serve(`${__dirname}/public`));
 
 const PORT = process.env.PORT || '3000';
 
+const btcmarkets = require('./routes/btcmarkets');
+app.use(btcmarkets.routes());
+
 const index  = require('./routes/index');
 app.use(index.routes());
 
