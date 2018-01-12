@@ -3,23 +3,21 @@ Coin API
 
 Basic NodeJS API developed with the Koa2 framework to check current trading margins between different cryptocurrency markets.
 
-### Install
+### Initial setup
 
-Ensure the .env file exists
+Create the env file and fill out all values
 > cp .env.template .env
 
-Install dependencies (rerun when package.json changes)
+Create the knexfile file and fill out all values
+> cp knexfile.js.template knexfile.js
 
+Install dependencies (rerun when package.json changes)
 > npm install
 
 
 ### Run
 
-> node index
-
-or
-
-> npm start
+> node index  or  npm start
 
 
 ### Documentation
@@ -35,3 +33,14 @@ Optional query parameters
 | minimal  | true for reduced output | false    |
 
 Ex. http://localhost:3001/btcmarkets?stake=300&sellFee=0.75&minimal=false
+
+__GET /prices__
+
+Optional header parameters
+
+| Param    | Description                                        | Value      |
+| -------- | -------------------------------------------------- | ---------: |
+| save     | Supply the auth value to save to the database      | qwertyuiop |
+| slack    | Supply the auth value to send a slack notification | qwertyuiop |
+
+Ex. http://localhost:3001/prices
