@@ -10,8 +10,9 @@ async function getPrices(currency) {
   promises.push(getPrice('btc', currency));
   promises.push(getPrice('ltc', currency));
   promises.push(getPrice('eth', currency));
-  promises.push(getPrice('bch', currency));
+  promises.push(getPrice('etc', currency));
   promises.push(getPrice('xrp', currency));
+  promises.push(getPrice('bch', currency));
 
   let values = await Promise.all(promises);
   values.forEach(function(item) {

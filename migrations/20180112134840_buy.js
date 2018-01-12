@@ -5,10 +5,11 @@ exports.up = function(knex, Promise) {
       table.increments('buy_id');
       table.string('market_id');
       table.double('btc');
-      table.double('eth');
       table.double('ltc');
-      table.double('bch');
+      table.double('eth');
+      table.double('etc');
       table.double('xrp');
+      table.double('bch');
       table.specificType('created_at', 'timestamp(0)').defaultTo(knex.fn.now());
     })
   ]);

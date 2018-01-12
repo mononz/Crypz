@@ -8,14 +8,15 @@ let model = bookshelf.Model.extend({
   getAll: function () {
     return model.forge().fetchAll();
   },
-  create: function (marketId, btc, eth, ltc, bch, xrp, time) {
+  create: function (marketId, json, time) {
     return model.forge({
       market_id:  marketId,
-      btc:        btc ? btc : null,
-      eth:        eth ? eth : null,
-      ltc:        ltc ? ltc : null,
-      bch:        bch ? bch : null,
-      xrp:        xrp ? xrp : null,
+      btc:        json.hasOwnProperty('btc') ? json.btc : null,
+      ltc:        json.hasOwnProperty('ltc') ? json.ltc : null,
+      eth:        json.hasOwnProperty('eth') ? json.eth : null,
+      etc:        json.hasOwnProperty('etc') ? json.etc : null,
+      xrp:        json.hasOwnProperty('xrp') ? json.xrp : null,
+      bch:        json.hasOwnProperty('bch') ? json.bch : null,
       created_at: time
     }).save();
   }

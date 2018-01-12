@@ -11,10 +11,11 @@ exports.up = function(knex, Promise) {
     }),
     knex("coins").insert([
       {coins_id: '1', code: 'btc', name: 'Bitcoin'},
-      {coins_id: '2', code: 'eth', name: 'Ethereum'},
-      {coins_id: '3', code: 'ltc', name: 'Litecoin'},
-      {coins_id: '4', code: 'bch', name: 'BCash'},
+      {coins_id: '2', code: 'ltc', name: 'Litecoin'},
+      {coins_id: '3', code: 'eth', name: 'Ethereum'},
+      {coins_id: '4', code: 'etc', name: 'Eth Classic'},
       {coins_id: '5', code: 'xrp', name: 'Ripple'},
+      {coins_id: '6', code: 'bch', name: 'BCash'},
     ])
   ]);
 };
