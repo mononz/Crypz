@@ -42,7 +42,7 @@ function print(btcmarkets, coinbase, key) {
   let suffix = '';
   if (btcmarkets.hasOwnProperty(key) && coinbase.hasOwnProperty(key)) {
     let ratio = (btcmarkets[key] - coinbase[key]) / coinbase[key] * 100;
-    suffix = ' (' + utils.round(ratio, 2) + ')';
+    suffix = ' (' + formatCurrency(ratio) + '%)';
   }
   return '*' + key + '* ' + formatCurrency(btcmarkets[key]) + suffix;
 }
