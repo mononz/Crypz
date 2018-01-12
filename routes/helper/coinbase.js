@@ -5,15 +5,15 @@ let client = new Client({
   'apiSecret': process.env.coinbaseApiSecret
 });
 
-async function getBuyPrices(currency) {
+async function getPrices(currency) {
 
   let response = {};
   let promises = [];
 
-  promises.push(getBuyPrice('btc', currency));
-  promises.push(getBuyPrice('ltc', currency));
-  promises.push(getBuyPrice('eth', currency));
-  promises.push(getBuyPrice('bch', currency));
+  promises.push(getPrice('btc', currency));
+  promises.push(getPrice('ltc', currency));
+  promises.push(getPrice('eth', currency));
+  promises.push(getPrice('bch', currency));
 
   let values = await Promise.all(promises);
   values.forEach(function(item) {
@@ -24,7 +24,7 @@ async function getBuyPrices(currency) {
   return response;
 }
 
-function getBuyPrice(coinCode, currency){
+function getPrice(coinCode, currency){
   return new Promise(function(resolve) {
     client.getBuyPrice({'currencyPair': `${coinCode.toUpperCase()}-${currency}`}, function(err, response) {
       if(err !== null) {
@@ -36,4 +36,4 @@ function getBuyPrice(coinCode, currency){
   });
 }
 
-module.exports.getBuyPrices = getBuyPrices;
+module.exports.getPrices = getPrices;
