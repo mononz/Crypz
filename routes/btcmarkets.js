@@ -45,8 +45,8 @@ router.get('/', async ctx => {
   }
 
   // pull buy and sell data
-  let buys = await coinbaseAPI.getBuyPrices(builder.config.currency);
-  let sells = await btcmarketsAPI.getSellPrices(builder.config.currency);
+  let buys = await coinbaseAPI.getPrices(builder.config.currency);
+  let sells = await btcmarketsAPI.getPrices(builder.config.currency);
 
   // coinbase
   let coinbase = {name: 'Coinbase', buyFee: 3.84, sendFee: 0.0163, trading: {}};
