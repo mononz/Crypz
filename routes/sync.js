@@ -35,14 +35,14 @@ router.post('/', async ctx => {
     }
   });
 
-  let result = {};
+  let data = {};
   let responses = await Promise.all(promises);
   for (let i=0; i<responses.length; i++) {
-    result[tables[i]] = responses[i].toJSON();
+    data[tables[i]] = responses[i].toJSON();
   }
 
   ctx.body = {
-    sync: result
+    data: data
   };
 });
 
