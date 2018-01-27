@@ -34,7 +34,7 @@ Optional query parameters
 
 Ex. http://localhost:3001/btcmarkets?stake=300&sellFee=0.75&minimal=false
 
-__GET /prices__
+__POST /prices__
 
 Optional header parameters
 

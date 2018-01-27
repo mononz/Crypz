@@ -27,6 +27,9 @@ app.use(btcmarkets.routes());
 const prices = require('./routes/prices');
 app.use(prices.routes());
 
+const sync = require('./routes/sync');
+app.use(sync.routes());
+
 const index  = require('./routes/index');
 app.use(index.routes());
 

@@ -10,6 +10,13 @@ const Buy = require('../models/buy');
 
 let currency = 'AUD';
 
+router.post('/app', async ctx => {
+  ctx.request.body.forEach((item) => {
+    item['price'] = 15
+  });
+  ctx.body = ctx.request.body;
+});
+
 router.post('/', async ctx => {
 
   let time = new Date(); // ensures dates always go in with same time
@@ -29,12 +36,21 @@ router.post('/', async ctx => {
   if (ctx.request.header.hasOwnProperty('slack') && ctx.request.header.slack === 'qwertyuiop') {
     let message = [];
     Object.keys(btcmarkets).forEach(function (key) {
-      message.push('*' + key + '* ' + formatCurrency(btcmarkets[key]));
+      message.push(print(btcmarkets, coinbase, key));
     });
     await slack.pushMessage(message.join('    '));
   }
 
   ctx.body = response;
 });
+
+function print(btcmarkets, coinbase, key) {
+  let suffix = '';
+  if (btcmarkets.hasOwnProperty(key) && coinbase.hasOwnProperty(key)) {
+    let ratio = (btcmarkets[key] - coinbase[key]) / coinbase[key] * 100;
+    suffix = ' (' + formatCurrency(ratio) + '%)';
+  }
+  return '*' + key + '* ' + formatCurrency(btcmarkets[key]) + suffix;
+}
 
 module.exports = router;

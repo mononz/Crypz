@@ -3,11 +3,11 @@ services:
 
   db:
     image: postgres:9.6
-    container_name: coin-postgres
+    container_name: crypz-postgres
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_USER=coin
-      - POSTGRES_PASSWORD=coin
+      - POSTGRES_USER=crypz
+      - POSTGRES_PASSWORD=crypz
     volumes:
-      - ~/Developer/DockerCache/Coin/:/var/lib/postgresql/data
+      - ~/Developer/DockerCache/Crypz/:/var/lib/postgresql/data
