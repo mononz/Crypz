@@ -5,11 +5,17 @@ const formatCurrency = require('format-currency');
 const coinbaseAPI   = require('./helper/coinbase');
 const btcmarketsAPI = require('./helper/btcmarkets');
 const slack         = require('./helper/slack');
-const utils         = require('./helper/utils');
 
 const Buy = require('../models/buy');
 
 let currency = 'AUD';
+
+router.post('/app', async ctx => {
+  ctx.request.body.forEach((item) => {
+    item['price'] = 15
+  });
+  ctx.body = ctx.request.body;
+});
 
 router.post('/', async ctx => {
 
