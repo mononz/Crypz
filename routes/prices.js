@@ -10,13 +10,6 @@ const Buy = require('../models/buy');
 
 let currency = 'AUD';
 
-router.post('/app', async ctx => {
-  ctx.request.body.forEach((item) => {
-    item['price'] = 15
-  });
-  ctx.body = ctx.request.body;
-});
-
 router.post('/', async ctx => {
 
   let time = new Date(); // ensures dates always go in with same time
