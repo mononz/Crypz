@@ -24,6 +24,9 @@ app.use(serve(`${__dirname}/public`));
 const btcmarkets = require('./routes/btcmarkets');
 app.use(btcmarkets.routes());
 
+const stakes = require('./routes/stakes');
+app.use(stakes.routes());
+
 const prices = require('./routes/prices');
 app.use(prices.routes());
 
