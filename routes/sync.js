@@ -5,6 +5,7 @@ const router = new Router({ prefix: '/sync' });
 const Coin       = require('../models/coin');
 const Market     = require('../models/market');
 const MarketCoin = require('../models/market_coin');
+const Setting    = require('../models/setting');
 
 router.post('/', async ctx => {
 
@@ -27,6 +28,9 @@ router.post('/', async ctx => {
         break;
       case 'market_coin':
         sync = new MarketCoin.sync(time);
+        break;
+      case 'setting':
+        sync = new Setting.sync(time);
         break;
     }
     if (sync !== null) {
