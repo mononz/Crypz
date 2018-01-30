@@ -37,3 +37,4 @@ function getPrice(coinCode, currency){
 }
 
 module.exports.getPrices = getPrices;
+module.exports.getPrice = getPrice;
