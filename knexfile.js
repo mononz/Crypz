@@ -8,9 +8,9 @@ module.exports = {
     client: 'pg',
     connection: {
       host:     'localhost',
-      database: 'planetside',
-      user:     'planetside',
-      password: 'planetside',
+      database: 'crypz',
+      user:     'crypz',
+      password: 'crypz',
       port:     '5432'
     },
     pool: {
@@ -26,7 +26,7 @@ module.exports = {
     client: process.env.DB_CLIENT,
     connection: {
       host:     process.env.DB_HOST,
-      database: process.env.DB_DATABASE,
+      database: process.env.DB_USER,
       user:     process.env.DB_USER,
       password: process.env.DB_PASS,
       port:     process.env.DB_PORT
@@ -44,7 +44,7 @@ module.exports = {
     client: process.env.DB_CLIENT,
     connection: {
       host:     process.env.DB_HOST,
-      database: process.env.DB_DATABASE,
+      database: process.env.DB_USER,
       user:     process.env.DB_USER,
       password: process.env.DB_PASS,
       port:     process.env.DB_PORT
