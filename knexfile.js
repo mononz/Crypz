@@ -23,7 +23,7 @@ module.exports = {
   },
 
   staging: {
-    client: process.env.DB_CLIENT,
+    client: 'pg',
     connection: {
       host:     process.env.DB_HOST,
       database: process.env.DB_USER,
@@ -41,7 +41,7 @@ module.exports = {
   },
 
   production: {
-    client: process.env.DB_CLIENT,
+    client: 'pg',
     connection: {
       host:     process.env.DB_HOST,
       database: process.env.DB_USER,
