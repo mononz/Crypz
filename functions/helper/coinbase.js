@@ -1,8 +1,11 @@
 const Client = require('coinbase').Client;
+const functions  = require('firebase-functions');
+
+const keys = functions.config().keys.coinbase;
 
 let client = new Client({
-  'apiKey': process.env.coinbaseApiKey,
-  'apiSecret': process.env.coinbaseApiSecret
+  'apiKey': keys.key,
+  'apiSecret': keys.secret
 });
 
 async function getPrices(currency) {
@@ -16,7 +19,7 @@ async function getPrices(currency) {
   promises.push(getPrice('bch', currency));
 
   let values = await Promise.all(promises);
-  values.forEach(function(item) {
+  values.forEach(item => {
     if (item) {
       response[item.code] = item.price;
     }
@@ -25,9 +28,9 @@ async function getPrices(currency) {
 }
 
 function getPrice(coinCode, currency){
-  return new Promise(function(resolve) {
-    client.getBuyPrice({'currencyPair': `${coinCode.toUpperCase()}-${currency}`}, function(err, response) {
-      if(err !== null) {
+  return new Promise(resolve => {
+    client.getBuyPrice({'currencyPair': `${coinCode.toUpperCase()}-${currency}`}, (err, response) => {
+      if (err) {
         console.error(coinCode, err);
         return resolve();
       }

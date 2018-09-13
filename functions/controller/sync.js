@@ -1,19 +1,23 @@
-const Router = require('koa-router');
-
-const router = new Router({ prefix: '/sync' });
-
 const Coin       = require('../models/coin');
 const Market     = require('../models/market');
 const MarketCoin = require('../models/market_coin');
 const Setting    = require('../models/setting');
 
-router.post('/', async ctx => {
+exports.get = async function (req, res) {
+  res.status(400).send('Nothing here: sync')
+};
+
+exports.param = async (req, res) => {
+  res.status(400).send('Nothing here: ' + req.params.id)
+};
+
+exports.post = async (req, res) => {
 
   let tables = [];
   let promises = [];
 
-  Object.keys(ctx.request.body).forEach(function (key) {
-    let time = ctx.request.body[key];
+  Object.keys(req.body).forEach(key => {
+    let time = req.body[key];
     if (time === '0' || time === '1') {
       time = '2000-01-01T00:00:00.000Z';
     }
@@ -45,13 +49,7 @@ router.post('/', async ctx => {
     data[tables[i]] = responses[i].toJSON();
   }
 
-  ctx.body = {
+  res.send({
     data: data
-  };
-});
-
-router.get('/', async ctx => {
-  ctx.body = 'Nope!'
-});
-
-module.exports = router;
+  });
+};
