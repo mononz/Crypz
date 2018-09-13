@@ -7,6 +7,9 @@ Functions are written for the Node 8 runtime.
 
 ## Setup
 
+Ensure you have at least Node 8.11 installed. Recommened using [nvm](https://github.com/creationix/nvm) to manage node versions
+> npm install -g firebase-tools
+
 Create the .firebaserc project file
 > cp .firebaserc.template .firebaserc
 
