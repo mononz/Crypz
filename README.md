@@ -10,8 +10,10 @@ Functions are written for the Node 8 runtime.
 Ensure you have at least Node 8.11 installed. Recommened using [nvm](https://github.com/creationix/nvm) to manage node versions
 > npm install -g firebase-tools
 
-Create the .firebaserc project file
-> cp .firebaserc.template .firebaserc
+Create the .firebaserc file
+> firebase login
+> firebase use --add
+> Enter a name like 'default' as the alias after you select the project
 
 Update line 3 of the .firebaserc file with your project name
 > "default": "firebase-project-name"
