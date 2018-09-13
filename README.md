@@ -10,13 +10,12 @@ Functions are written for the Node 8 runtime.
 Ensure you have at least Node 8.11 installed. Recommened using [nvm](https://github.com/creationix/nvm) to manage node versions
 > npm install -g firebase-tools
 
-Create the .firebaserc file
+If not logged in
 > firebase login
+
+Create the .firebaserc file by running
 > firebase use --add
 > Enter a name like 'default' as the alias after you select the project
-
-Update line 3 of the .firebaserc file with your project name
-> "default": "firebase-project-name"
 
 Install node modules
 > cd functions && npm install
@@ -39,3 +38,6 @@ Deploy hosting and functions with
 
 or, only functions
 > firebase deploy --only functions
+
+or, only single function
+> firebase deploy --only functions:beta
