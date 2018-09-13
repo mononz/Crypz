@@ -4,6 +4,7 @@
     "cleanUrls": true,
     "trailingSlash": false,
     "rewrites": [
+      { "source": "/api/**", "function": "api" },
       { "source": "/beta", "function": "beta" }
     ],
     "ignore": [
