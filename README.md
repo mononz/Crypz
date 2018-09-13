@@ -1,46 +1,30 @@
-Coin API
-========
+Crypz
+=====
 
-Basic NodeJS API developed with the Koa2 framework to check current trading margins between different cryptocurrency markets.
+Firebase project using [Hosting](https://firebase.google.com/docs/hosting/) and [Functions](https://firebase.google.com/docs/functions/) for determining current cypto prices from either btcmarkets or coinbase
 
-### Initial setup
+Functions are written for the Node 8 runtime.
 
-Create the env file and fill out all values
-> cp .env.template .env
+## Setup
 
-Create the knexfile file and fill out all values
-> cp knexfile.js.template knexfile.js
+Install node modules
+> cd functions && npm install
 
-Install dependencies (rerun when package.json changes)
-> npm install
+If not set, add the environment varables to the firebase project
+> firebase functions:config:set database.port="VALUE" database.host="VALUE" database.user="VALUE" database.pass="VALUE" keys.coinbase.key="VALUE" keys.coinbase.secret="VALUE" keys.btcmarkets.key="VALUE" keys.btcmarkets.secret="VALUE"
 
+## Local Testing
 
-### Run
+If not set, pull the environment config for local testing
+> firebase functions:config:get>.runtimeconfig.json
 
-> node index  or  npm start
+Run and test locally
+> firebase serve
 
+## Deploy
 
-### Documentation
+Deploy hosting and functions with
+> firebase deploy
 
-__GET /btcmarkets__
-
-Optional query parameters
-
-| Param    | Description             | Defaults |
-| -------- | ----------------------- | -------: |
-| stake    | amount to invest        | 2000     |
-| sellFee  | btcmarkets trading fee  | 0.5      |
-| minimal  | true for reduced output | false    |
-
-Ex. http://localhost:3001/btcmarkets?stake=300&sellFee=0.75&minimal=false
-
-__POST /prices__
-
-Optional header parameters
-
-| Param    | Description                                        | Value      |
-| -------- | -------------------------------------------------- | ---------: |
-| save     | Supply the auth value to save to the database      | qwertyuiop |
-| slack    | Supply the auth value to send a slack notification | qwertyuiop |
-
-Ex. http://localhost:3001/prices
+or, only functions
+> firebase deploy --only functions
