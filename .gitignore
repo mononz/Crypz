@@ -16,3 +16,4 @@ process.yaml
 
 .firebase
 firebase-debug.log
+.firebaserc

@@ -7,6 +7,12 @@ Functions are written for the Node 8 runtime.
 
 ## Setup
 
+Create the .firebaserc project file
+> cp .firebaserc.template .firebaserc
+
+Update line 3 of the .firebaserc file with your project name
+> "default": "firebase-project-name"
+
 Install node modules
 > cd functions && npm install
 
