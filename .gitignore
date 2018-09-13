@@ -12,7 +12,7 @@ node_modules
 process.yaml
 
 .DS_Store
-
 .env
 
-firebase-key.json
+.firebase
+firebase-debug.log
