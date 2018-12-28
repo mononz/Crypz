@@ -31,6 +31,10 @@ If not set, pull the environment config for local testing
 Run and test locally
 > firebase serve
 
+or run with optional host
+> firebase serve --host 192.168.0.9
+
+
 ## Deploy
 
 Deploy hosting and functions with

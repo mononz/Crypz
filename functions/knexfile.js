@@ -30,8 +30,16 @@ module.exports = {
       port:     functions.config().database.port
     },
     pool: {
-      min: 2,
-      max: 10
+      min: 0,
+      max: 10,
+      afterCreate: (conn, done) => {
+        conn.query('select 1+1 as result;', (err) => {
+          if (err) {
+            console.log(err)
+          }
+          done(err, conn)
+        })
+      }
     },
     migrations: {
       tableName: 'knex_migrations'
